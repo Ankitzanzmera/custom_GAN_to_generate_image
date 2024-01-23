@@ -4,5 +4,9 @@ matplotlib
 ipykernel
 ipywidgets
 keras
+python-box
+pyYAML
+ensure
+gdown==4.6.0
 
 -e .
