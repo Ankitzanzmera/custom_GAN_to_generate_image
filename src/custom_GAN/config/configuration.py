@@ -1,7 +1,8 @@
 from pathlib import Path
 from custom_GAN.constants import *
 from custom_GAN.utils.common import read_yaml,create_directories
-from custom_GAN.entity.config_entity import DataIngestionConfig
+from custom_GAN.entity.config_entity import (DataIngestionConfig,
+                                            DataTransformationConfig)
 
 
 class ConfigurationManager:
@@ -18,5 +19,15 @@ class ConfigurationManager:
             local_data_file = temp_config.local_data_file,
             unzip_dir = temp_config.unzip_dir
         )
-
         return data_ingestion_config
+    
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        temp_config = self.config.data_transformation
+
+        data_transformation_config = DataTransformationConfig(
+            root_dir = temp_config.root_dir,
+            data_dir=temp_config.data_dir   ,
+            preprocessed_dir = temp_config.preprocessed_data_file
+        )
+    
+        return data_transformation_config

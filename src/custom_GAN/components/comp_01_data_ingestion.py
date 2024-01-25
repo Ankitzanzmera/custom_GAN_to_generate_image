@@ -25,12 +25,9 @@ class DataIngestion:
     @property
     def __unzip_file__(self):
         try:
-            if not os.path.exists(self.config.unzip_dir):
-                with ZipFile(self.config.local_data_file,"r") as zip_ref:
-                    zip_ref.extractall(self.config.unzip_dir)
-                    logger.info("Zip file is extracted")
-            else:
-                    logger.info("Zip file is already extracted")
+            with ZipFile(self.config.local_data_file,"r") as zip_ref:
+                zip_ref.extractall(self.config.unzip_dir)
+                logger.info("Zip file is extracted")
         except Exception as e:
             raise CustomException(e,sys)
     
