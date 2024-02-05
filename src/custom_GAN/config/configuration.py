@@ -2,7 +2,8 @@ from pathlib import Path
 from custom_GAN.constants import *
 from custom_GAN.utils.common import read_yaml,create_directories
 from custom_GAN.entity.config_entity import (DataIngestionConfig,
-                                            DataTransformationConfig)
+                                            DataTransformationConfig,
+                                            PrepareBaseModelConfig)
 
 
 class ConfigurationManager:
@@ -31,3 +32,14 @@ class ConfigurationManager:
         )
     
         return data_transformation_config
+    
+    def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
+        temp_config = self.config.prepare_base_model
+
+        base_model_config = PrepareBaseModelConfig(
+            root_dir = temp_config.root_dir,
+            generator_path = temp_config.generator_path,
+            discriminator_path = temp_config.discriminator_path
+        )
+        
+        return base_model_config

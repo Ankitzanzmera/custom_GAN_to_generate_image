@@ -13,3 +13,10 @@ class DataTransformationConfig:
     root_dir: Path
     data_dir: Path
     preprocessed_dir: Path
+
+
+@dataclass(frozen = True)
+class PrepareBaseModelConfig:
+    root_dir: Path
+    generator_path: Path
+    discriminator_path: Path
