@@ -30,7 +30,7 @@ class PrepareBaseModel:
         model.add(Dropout(0.4))
 
         model.add(Flatten())
-        model.add(Dropout(0.2))
+        model.add(Dropout(0.4))
         model.add(Dense(1,activation="sigmoid"))
 
         return model

@@ -35,10 +35,6 @@ class DataTransformation:
 
             tf.data.Dataset.save(dataset,self.config.preprocessed_dir)
 
- 
-
-
-
         except Exception as e:
             raise CustomException(e,sys)
 

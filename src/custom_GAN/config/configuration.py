@@ -3,7 +3,8 @@ from custom_GAN.constants import *
 from custom_GAN.utils.common import read_yaml,create_directories
 from custom_GAN.entity.config_entity import (DataIngestionConfig,
                                             DataTransformationConfig,
-                                            PrepareBaseModelConfig)
+                                            PrepareBaseModelConfig,
+                                            ModelTrainingConfig)
 
 
 class ConfigurationManager:
@@ -28,9 +29,8 @@ class ConfigurationManager:
         data_transformation_config = DataTransformationConfig(
             root_dir = temp_config.root_dir,
             data_dir=temp_config.data_dir   ,
-            preprocessed_dir = temp_config.preprocessed_data_file
+            preprocessed_dir = temp_config.preprocessed_data_dir
         )
-    
         return data_transformation_config
     
     def get_prepare_base_model_config(self) -> PrepareBaseModelConfig:
@@ -41,5 +41,18 @@ class ConfigurationManager:
             generator_path = temp_config.generator_path,
             discriminator_path = temp_config.discriminator_path
         )
-        
         return base_model_config
+    
+    def get_model_training_config(self) -> ModelTrainingConfig:
+        temp_config = self.config.model_training
+
+        model_training_config = ModelTrainingConfig(
+            root_dir = temp_config.root_dir,
+            preprocessed_dir = temp_config.preprocessed_data_dir,
+            generator_path = temp_config.generator_path,
+            discriminator_path = temp_config.discriminator_path,
+            trained_generator_path = temp_config.trained_generator_path,
+            trained_discriminator_path = temp_config.trained_discriminator_path 
+        )
+        return model_training_config
+

@@ -20,3 +20,12 @@ class PrepareBaseModelConfig:
     root_dir: Path
     generator_path: Path
     discriminator_path: Path
+
+@dataclass(frozen=True)
+class ModelTrainingConfig:
+    root_dir: Path
+    preprocessed_dir: Path
+    generator_path: Path
+    discriminator_path: Path
+    trained_generator_path: Path
+    trained_discriminator_path: Path

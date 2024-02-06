@@ -6,14 +6,21 @@ data_ingestion:
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir: artifacts/data_ingestion/
 
-
 data_transformation:
   root_dir: artifacts/data_transformation
   data_dir: artifacts/data_ingestion/data/
-  preprocessed_data_file: artifacts/data_transformation/
+  preprocessed_data_dir: artifacts/data_transformation/
 
 prepare_base_model:
   root_dir: artifacts/base_model
   generator_path: artifacts/base_model/generator.h5
   discriminator_path: artifacts/base_model/discriminator.h5
+
+model_training:
+  root_dir: artifacts/model_training
+  preprocessed_data_dir: artifacts/data_transformation/
+  generator_path: artifacts/base_model/generator.h5
+  discriminator_path: artifacts/base_model/discriminator.h5
+  trained_generator_path: artifacts/model_training/trained_generator.h5
+  trained_discriminator_path: artifacts/model_training/trained_discriminator.h5
 
