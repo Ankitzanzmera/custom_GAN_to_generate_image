@@ -15,7 +15,7 @@ class ModelTrainingPipeline:
             raise CustomException(e,sys)
 
 
-STAGE_NAME = "Model Trainin"
+STAGE_NAME = "Model Training"
 if __name__ == "__main__":
     try:
         logger.info(f">>>>>>>>>>>>>>>>>>>>>>>>> {STAGE_NAME} Started <<<<<<<<<<<<<<<<<<<<<<<<<")
